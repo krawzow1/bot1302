@@ -1,5 +1,5 @@
 import telebot
-
+token = '5189222022:AAHwMwbam7yvCOFoHlfzYcqpYOA3FOyW21o'
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
