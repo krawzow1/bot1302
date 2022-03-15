@@ -38,11 +38,11 @@ def func(message):
     else:
         bot.send_message(message.chat.id, text="На такую комманду я не запрограммировал..")
         
- @bot.message_handler(content_types=['text'])
-    def handle_text(message):
-        if message.text == "Wunderlist":
-            a = telebot.types.ReplyKeyboardRemove()
-            bot.send_message(message.from_user.id, 'Что', reply_markup=a)
+@bot.message_handler(content_types=['text'])
+   def handle_text(message):
+       if message.text == "Wunderlist":
+           a = telebot.types.ReplyKeyboardRemove()
+           bot.send_message(message.from_user.id, 'Что', reply_markup=a)
     
 
 if __name__ == '__main__':
