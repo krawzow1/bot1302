@@ -4,20 +4,39 @@ token = '5189222022:AAHwMwbam7yvCOFoHlfzYcqpYOA3FOyW21o'
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
-def start_message(message):
-	bot.send_message(message.chat.id, text="Привет, {0.first_name}!".format(message.from_user))	
-       
-@bot.message_handler(commands=['button'])
-def button_message(message):
-    markup=types.ReplyKeyboardMarkup(resize_keyboard=True)
-    item1=types.KeyboardButton("Кнопка")
-    markup.add(item1)
-    bot.send_message(message.chat.id,'Нажми кнопку' ,reply_markup=markup)
-	
-@bot.message_handler(content_types='text')
-def message_reply(message):
-    if message.text=="Кнопка":
-        bot.send_message(message.chat.id,"https://vk.com/")
+def start(message):
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn1 = types.KeyboardButton("Поздороваться")
+    btn2 = types.KeyboardButton("Задать вопрос")
+    markup.add(btn1, btn2)
+    bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот".format(message.from_user), reply_markup=markup)
+    
+@bot.message_handler(content_types=['text'])
+def func(message):
+    if(message.text == "Поздороваться"):
+        bot.send_message(message.chat.id, text="Привеет...")
+    elif(message.text == "Задать вопрос"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn1 = types.KeyboardButton("Как меня зовут?")
+        btn2 = types.KeyboardButton("Что я могу?")
+        back = types.KeyboardButton("Вернуться в главное меню")
+        markup.add(btn1, btn2, back)
+        bot.send_message(message.chat.id, text="Задай мне вопрос", reply_markup=markup)
+    
+    elif(message.text == "Как меня зовут?"):
+        bot.send_message(message.chat.id, "У меня нет имени..")
+    
+    elif message.text == "Что я могу?":
+        bot.send_message(message.chat.id, text="Поздороваться с пользователем")
+    
+    elif (message.text == "Вернуться в главное меню"):
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        button1 = types.KeyboardButton("Поздороваться")
+        button2 = types.KeyboardButton("Задать вопрос")
+        markup.add(button1, button2)
+        bot.send_message(message.chat.id, text="Вы вернулись в главное меню", reply_markup=markup)
+    else:
+        bot.send_message(message.chat.id, text="На такую комманду я не запрограммировал..")
 
 if __name__ == '__main__':
      bot.infinity_polling()
