@@ -16,7 +16,7 @@ def button_message(message):
 	
 @bot.message_handler(content_types='text')
 def message_reply(message):
-    if message.text=="Кнопка":
+    if message.text==item1:
         bot.send_message(message.chat.id,"https://habr.com/ru/users/lubaznatel/")
 
 if __name__ == '__main__':
