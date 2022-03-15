@@ -5,7 +5,7 @@ bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-	bot.send_message(message.chat.id, text="Привет, {0.first_name}!".format(message.from_user))	
+	bot.send_message(message.chat.id,"Привет, {0.first_name}!".format(message.from_user))	
        
 @bot.message_handler(commands=['button'])
 def button_message(message):
