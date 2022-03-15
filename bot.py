@@ -13,6 +13,11 @@ def button_message(message):
     item1=types.KeyboardButton("Кнопка")
     markup.add(item1)
     bot.send_message(message.chat.id,'Нажми кнопку' ,reply_markup=markup)
+	
+@bot.message_handler(content_types='text')
+def message_reply(message):
+    if message.text=="Кнопка":
+        bot.send_message(message.chat.id,"https://habr.com/ru/users/lubaznatel/")
 
 if __name__ == '__main__':
      bot.infinity_polling()
