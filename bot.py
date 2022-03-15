@@ -3,8 +3,8 @@ token = '5189222022:AAHwMwbam7yvCOFoHlfzYcqpYOA3FOyW21o'
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
-def start(message):
-    bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот для твоей статьи для habr.com".format(message.from_user), reply_markup=markup)
+def start_message(message):
+  bot.send_message(message.chat.id,"Привет ✌️ ")
     
 
 if __name__ == '__main__':
