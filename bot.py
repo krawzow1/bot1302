@@ -3,6 +3,13 @@ from telebot import types # для указание типов
 token = '5189222022:AAHwMwbam7yvCOFoHlfzYcqpYOA3FOyW21o'
 bot = telebot.TeleBot(token)
 
+
+
+
+@bot.message_handler(commands=['img'])
+def image(message):
+    bot.send_photo(message.chat.id, photo=open('img/q.jpg', 'rb'))
+
 @bot.message_handler(commands=['start'])
 def start(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
