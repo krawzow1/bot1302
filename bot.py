@@ -18,12 +18,10 @@ def message_reply(message):
         bot.send_photo(message.chat.id, photo=open('vze2.jpg', 'rb'))
     if message.text=="Кнопка2":
         bot.send_message(message.chat.id, "vk.com/goshkazavr")
-
-@bot.message_handler(content_types='text')
-def game(message):
     if message.text=="Игра":
-        bot.send_message(message.chat.id, "vk.com/goshkazavr")
-    
+        bot.send_message(message.chat.id, "Игра началась")
+        if message.text=="Кнопка2":
+            bot.send_message(message.chat.id, "vk.csdsdsdsdsdsdsd") 
   
          
 
