@@ -21,7 +21,7 @@ def button_message(message):
          
 
 @bot.message_handler(content_types=["text"])
-def message_reply(message):
+def button_message(message):
     if message.text == "Поступить разумно и дальше искать выход из леса.":
         bot.send_message(message.chat.id, 'Удачи с этим.', reply_markup = markup)           
 
