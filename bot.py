@@ -6,17 +6,13 @@ bot = telebot.TeleBot(token)
 
 
 
-@bot.message_handler(commands=['img'])
-def image(message):
-    bot.send_photo(message.chat.id, photo=open('img/q.jpg', 'rb'))
+#@bot.message_handler(commands=['img'])
+#def image(message):
+#    bot.send_photo(message.chat.id, photo=open('img/q.jpg', 'rb'))
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    btn1 = types.KeyboardButton("Поздороваться")
-    btn2 = types.KeyboardButton("Задать вопрос")
-    markup.add(btn1, btn2)
-    bot.send_message(message.chat.id, text="Привет, {0.first_name}! Я тестовый бот".format(message.from_user), reply_markup=markup)
+@bot.message_handler(commands=["start"])
+def start_message(message):
+    bot.send_message(message.chat.id, text = "Ты заблудился ночью в лесу. Долго ходил-бродил и искал выход из леса, но ТУТ ты увидел жутко темный, жутко подозрительный и жутко жуткий замок.")
     
 @bot.message_handler(content_types=['text'])
 def func(message):
