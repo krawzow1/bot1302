@@ -23,6 +23,8 @@ def message_reply(message):
 def game(message):
     if message.text=="Игра":
         bot.send_message(message.chat.id, "игра началась")
+    else:
+        bot.send.message(message.chat.id, "игра началась")
     
   
          
