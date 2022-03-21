@@ -22,9 +22,7 @@ def message_reply(message):
 @bot.message_handler(content_types='text')
 def game(message):
     if message.text=="Игра":
-        bot.send_message(message.chat.id, "игра началась")
-    else:
-        bot.send.message(message.chat.id, "игра началась")
+        bot.send_message(message.chat.id, "vk.com/goshkazavr")
     
   
          
